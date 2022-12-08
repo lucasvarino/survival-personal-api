@@ -2,17 +2,22 @@ import { Injectable } from '@nestjs/common';
 import { AlunosRepository } from './alunos.repository';
 import { CreateAlunoDto } from './dto/create-aluno.dto';
 import { UpdateAlunoDto } from './dto/update-aluno.dto';
+import * as bcrypt from 'bcrypt';
 
 @Injectable()
 export class AlunosService {
   constructor(private readonly repository: AlunosRepository) {}
 
-  create(createAlunoDto: CreateAlunoDto) {
-    return this.repository.create(createAlunoDto);
+  async create(createAlunoDto: CreateAlunoDto) {
+    const hashedPassword = await bcrypt.hash(createAlunoDto.password, 10);
+    return this.repository.create({
+      ...createAlunoDto,
+      password: hashedPassword,
+    });
   }
 
   findAll() {
-    return this.findAll();
+    return this.repository.findAll();
   }
 
   findOne(id: string) {
