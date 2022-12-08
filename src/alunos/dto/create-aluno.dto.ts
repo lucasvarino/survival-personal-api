@@ -16,4 +16,8 @@ export class CreateAlunoDto {
   @IsString()
   @IsNotEmpty()
   matricula: string;
+
+  @IsString()
+  @IsNotEmpty()
+  curso: string;
 }

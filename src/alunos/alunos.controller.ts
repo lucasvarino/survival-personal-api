@@ -1,4 +1,12 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+} from '@nestjs/common';
 import { AlunosService } from './alunos.service';
 import { CreateAlunoDto } from './dto/create-aluno.dto';
 import { UpdateAlunoDto } from './dto/update-aluno.dto';
@@ -19,16 +27,16 @@ export class AlunosController {
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.alunosService.findOne(+id);
+    return this.alunosService.findOne(id);
   }
 
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateAlunoDto: UpdateAlunoDto) {
-    return this.alunosService.update(+id, updateAlunoDto);
+    return this.alunosService.update(id, updateAlunoDto);
   }
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return this.alunosService.remove(+id);
+    return this.alunosService.remove(id);
   }
 }

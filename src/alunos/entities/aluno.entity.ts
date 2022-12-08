@@ -6,4 +6,5 @@ export class AlunoEntity implements Aluno {
   email: string;
   password: string;
   matricula: string;
+  curso: string;
 }

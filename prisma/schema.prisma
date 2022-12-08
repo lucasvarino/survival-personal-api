@@ -11,11 +11,12 @@ datasource db {
 }
 
 model Aluno {
-  id String @id @default(uuid())
-  name String @unique
-  email String @unique
-  password String
+  id        String @id @default(uuid())
+  name      String @unique
+  email     String @unique
+  password  String
   matricula String
+  curso     String
 
-  @@map("alunos")  
+  @@map("alunos")
 }
