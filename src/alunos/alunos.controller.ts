@@ -39,4 +39,9 @@ export class AlunosController {
   remove(@Param('id') id: string) {
     return this.alunosService.remove(id);
   }
+
+  @Get('/email')
+  findByEmail(@Body() email: string) {
+    return this.alunosService.findByEmail(email);
+  }
 }

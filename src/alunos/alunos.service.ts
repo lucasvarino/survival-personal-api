@@ -24,6 +24,10 @@ export class AlunosService {
     return this.repository.findOne(id);
   }
 
+  findByEmail(email: string) {
+    return this.repository.findByEmail(email);
+  }
+
   update(id: string, updateAlunoDto: UpdateAlunoDto) {
     return this.repository.update(id, updateAlunoDto);
   }

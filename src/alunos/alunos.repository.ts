@@ -41,4 +41,12 @@ export class AlunosRepository {
       },
     });
   }
+
+  async findByEmail(email: string): Promise<Aluno | null> {
+    return this.prisma.aluno.findUnique({
+      where: {
+        email,
+      },
+    });
+  }
 }
